@@ -1,4 +1,6 @@
 .App {
+  max-width: 1000px;
+  margin: 0 auto;
   text-align: center;
-  background-color: yellowgreen;
+  background-color: rgba(211, 211, 211, 0.904);
 }

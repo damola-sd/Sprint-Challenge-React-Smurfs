@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
-
+import styled from 'styled-components';
 import Smurf from './Smurf';
+
+const SmurfsDiv = styled.div`
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-between; */
+`;
+
+
 
 class Smurfs extends Component {
   render() {
     return (
-      <div className="Smurfs">
+      <SmurfsDiv>
         <h1>Smurf Village</h1>
         <ul>
           {this.props.smurfs.map(smurf => {
@@ -16,11 +24,12 @@ class Smurfs extends Component {
                 age={smurf.age}
                 height={smurf.height}
                 key={smurf.id}
+                delete = {this.props.delete}
               />
             );
           })}
         </ul>
-      </div>
+      </SmurfsDiv>
     );
   }
 }

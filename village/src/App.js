@@ -36,8 +36,6 @@ const NavBar = styled.nav`
     }
 
   }
-
-  
   
 `;
 
@@ -61,6 +59,14 @@ class App extends Component {
       })
   }
 
+  deleteSmurf = (id) => {
+    Axios.delete(`${smurfServer}/${id}`)
+    .then(() => {
+      this.componentDidUpdate;
+    })
+    .finally(err => console.log(err))
+  }
+
 
   componentDidMount() {
     this.getSmurfs();
@@ -78,7 +84,7 @@ class App extends Component {
             <NavLink to="/smurf-form">Add Smurf</NavLink>
           </NavBar>
           {/* <SmurfForm /> */}
-          <Smurfs smurfs={this.state.smurfs} />
+          <Smurfs smurfs={this.state.smurfs} delete = {this.deleteSmurf}/>
 
           <Route
             path="/"
