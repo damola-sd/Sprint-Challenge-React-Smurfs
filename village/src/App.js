@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
-import { BrowserRouter as Router, Route, Link, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import './App.css';
 import styled from 'styled-components';
 import SmurfForm from './components/SmurfForm';
@@ -18,15 +18,21 @@ const NavBar = styled.nav`
   a {
     border: 1px solid black;
     padding: 5px;
-    border-radius: 5px;
+    border-radius: 8px;
     background-color: yellow;
     margin: 20px;
     text-decoration: none;
     cursor: pointer;
+    padding-top: 10px;
     
 
     &:hover {
+      background-color: red;
 
+    }
+
+    &:visited {
+      background-color: goldenrod;
     }
 
   }
@@ -68,8 +74,8 @@ class App extends Component {
       <Router>
         <div className="App">
           <NavBar>
-            <Link to="/">Home</Link>
-            <Link to="/smurf-form">Add Smurf</Link>
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/smurf-form">Add Smurf</NavLink>
           </NavBar>
           {/* <SmurfForm /> */}
           <Smurfs smurfs={this.state.smurfs} />
